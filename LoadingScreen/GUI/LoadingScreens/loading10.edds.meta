@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{BDAA202318C6E261}LoadingScreen/GUI/LoadingScreens/loading10.edds"
+ Author "desktop-e8g26fa"
+ ChangeDate 874737313
+ Configurations {
+  PNGResourceClass PC {
+   SourceFile "loading10.png"
+  }
+  PNGResourceClass XBOX_ONE : PC {
+  }
+  PNGResourceClass PS4 : PC {
+  }
+  PNGResourceClass LINUX : PC {
+  }
+ }
+}

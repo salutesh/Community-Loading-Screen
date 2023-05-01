@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{226C15D369463FA4}LoadingScreen/GUI/logo.edds"
+ Author "desktop-e8g26fa"
+ ChangeDate 176385697
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "logo.tga"
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}

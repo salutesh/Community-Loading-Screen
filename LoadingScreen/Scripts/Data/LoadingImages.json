@@ -1,11 +1,47 @@
 [
     {
-        "ImagePath": "LoadingScreen/GUI/LoadingScreens/loading_screen_1.edds"
+        "ImagePath": "LoadingScreen/GUI/LoadingScreens/loading1.edds"
     },
     {
-        "ImagePath": "LoadingScreen/GUI/LoadingScreens/loading_screen_2.edds"
+        "ImagePath": "LoadingScreen/GUI/LoadingScreens/loading2.edds"
     },
     {
-        "ImagePath": "LoadingScreen/GUI/LoadingScreens/loading_screen_3.edds"
+        "ImagePath": "LoadingScreen/GUI/LoadingScreens/loading3.edds"
+    },
+    {
+        "ImagePath": "LoadingScreen/GUI/LoadingScreens/loading4.edds"
+    },
+    {
+        "ImagePath": "LoadingScreen/GUI/LoadingScreens/loading5.edds"
+    },
+    {
+        "ImagePath": "LoadingScreen/GUI/LoadingScreens/loading6.edds"
+    },
+    {
+        "ImagePath": "LoadingScreen/GUI/LoadingScreens/loading7.edds"
+    },
+    {
+        "ImagePath": "LoadingScreen/GUI/LoadingScreens/loading8.edds"
+    },
+    {
+        "ImagePath": "LoadingScreen/GUI/LoadingScreens/loading9.edds"
+    },
+    {
+        "ImagePath": "LoadingScreen/GUI/LoadingScreens/loading10.edds"
+    },
+    {
+        "ImagePath": "LoadingScreen/GUI/LoadingScreens/loading11.edds"
+    },
+    {
+        "ImagePath": "LoadingScreen/GUI/LoadingScreens/loading12.edds"
+    },
+    {
+        "ImagePath": "LoadingScreen/GUI/LoadingScreens/loading13.edds"
+    },
+    {
+        "ImagePath": "LoadingScreen/GUI/LoadingScreens/loading14.edds"
+    },
+    {
+        "ImagePath": "LoadingScreen/GUI/LoadingScreens/loading15.edds"
     }
 ]

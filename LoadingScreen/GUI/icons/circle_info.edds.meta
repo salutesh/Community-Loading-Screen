@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{C0EAB011EB4CDA6C}LoadingScreen/GUI/icons/circle_info.tga"
+ Author "desktop-e8g26fa"
+ ChangeDate -820760927
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "circle_info.tga"
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}

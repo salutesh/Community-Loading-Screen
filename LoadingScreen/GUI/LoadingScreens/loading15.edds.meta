@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{5E925BE7D8507070}LoadingScreen/GUI/LoadingScreens/loading15.edds"
+ Author "desktop-e8g26fa"
+ ChangeDate 1914924705
+ Configurations {
+  PNGResourceClass PC {
+   SourceFile "loading15.png"
+  }
+  PNGResourceClass XBOX_ONE : PC {
+  }
+  PNGResourceClass PS4 : PC {
+  }
+  PNGResourceClass LINUX : PC {
+  }
+ }
+}
