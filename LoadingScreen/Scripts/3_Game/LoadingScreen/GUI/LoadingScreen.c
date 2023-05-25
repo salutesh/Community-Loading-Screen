@@ -5,7 +5,7 @@
  * www.dayzexpansion.com
  * © 2022 DayZ Expansion Mod Team
  *
- * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. 
+ * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
  * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
  *
 */
@@ -23,9 +23,9 @@ class CustomLoadingScreenData
 	int LoadingBarColor = ARGB(255, 199, 38, 81);
 	bool UseCustomHints = true;
 	string HintIconPath = "LoadingScreen/GUI/icons/circle_info.edds";
-	
+
 	ref array<ref CustomLoadingScreenBackground> m_ExBackgrounds;
-	
+
 	void CustomLoadingScreenData()
 	{
 		m_ExBackgrounds = new array<ref CustomLoadingScreenBackground>;
@@ -37,12 +37,12 @@ modded class UiHintPanel
 {
 	protected const string 	m_ExDataPath = "LoadingScreen/Scripts/Data/Hints.json"; //! Custom hints json path
 	protected ref CustomLoadingScreenData m_ExCustomLoadingScreenData;
-	
+
 	override protected void LoadContentList()
 	{
 		if (!m_ExCustomLoadingScreenData)
 			m_ExCustomLoadingScreenData = new CustomLoadingScreenData();
-		
+
 		if (m_ExCustomLoadingScreenData && m_ExCustomLoadingScreenData.UseCustomHints)
 		{
 			JsonFileLoader<array<ref HintPage>>.JsonLoadFile(m_ExDataPath, m_ContentList);
@@ -52,63 +52,32 @@ modded class UiHintPanel
 			JsonFileLoader<array<ref HintPage>>.JsonLoadFile(m_DataPath, m_ContentList);
 		}
 	}
-	
-	override void Init(DayZGame game)
-	{
-		super.Init(game);
-		
-		m_ContentList.Clear();
-		LoadContentList();
-		if (m_ContentList)
-		{
-			// Get random page index 
-			RandomizePageIndex();
-			// Populate the layout with data
-			PopulateLayout();
-			// Start the slideshow
-			StartSlideshow();		
-		}
-	}
-	
-	/*override protected void BuildLayout(Widget parent_widget)
-	{
-		super.BuildLayout(parent_widget);
-
-		//! Create custom hint icon
-		float posHintIconX, posHintIconY;
-		m_UiHintImage.GetScreenPos(posHintIconX, posHintIconY);	
-		m_UiHintImage.Show(false);
-		m_UiHintImage.Unlink();
-		
-		m_UiHintImage = ImageWidget.Cast(m_Game.GetWorkspace().CreateWidgets("LoadingScreen/GUI/layouts/hint_icon.layout", parent_widget));
-		m_UiHintImage.SetScreenPos(posHintIconX, posHintIconY, true);
-	}*/
 };
 
 modded class LoginScreenBase
 {
 	protected ImageWidget m_ExHintIcon;
 	protected int m_ExBackgroundIndex = 0;
-	
+
 	protected const float LOADING_SCREEN_CHANGE_TIME = 3.0;
 	protected float m_ExLoadingTime;
-	
+
 	protected ImageWidget m_ExBackground;
-	
+
 	protected ref CustomLoadingScreenData m_ExCustomLoadingScreenData;
 	protected ref array<int> m_ShownBackgrounds;
-		
+
 	void LoginScreenBase()
 	{
 		m_ExCustomLoadingScreenData = new CustomLoadingScreenData();
-		
+
 		if (!m_ExCustomLoadingScreenData)
 			return;
-		
+
 		if (m_ExCustomLoadingScreenData.RandomizeBackgounds)
 			m_ShownBackgrounds = new array<int>;
 	}
-	
+
 	/*override Widget Init()
 	{
 		layoutRoot = super.Init();
@@ -147,13 +116,13 @@ modded class LoginScreenBase
 				{
 					m_ShownBackgrounds.Clear();
 				}
-				
+
 			}
-			
+
 			m_ExLoadingTime = 0;
 		}
 	}
-	
+
 	protected int GetRandomBackroundIndex()
 	{
 		int index = Math.RandomIntInclusive(0, (m_ExCustomLoadingScreenData.m_ExBackgrounds.Count() - 1));
@@ -162,10 +131,10 @@ modded class LoginScreenBase
 		{
 			index = Math.RandomIntInclusive(0, (m_ExCustomLoadingScreenData.m_ExBackgrounds.Count() - 1));
 		}
-		
+
 		return index;
 	}
-	
+
 	protected void SetBackgroundImage(int index)
 	{
 		CustomLoadingScreenBackground background = m_ExCustomLoadingScreenData.m_ExBackgrounds.Get(index);
@@ -218,13 +187,13 @@ modded class LoadingScreen
 	protected const float LOADING_SCREEN_CHANGE_TIME = 2.5;
 	protected float m_ExLoadingTime;
 	protected float m_ExLoadingTimeStamp;
-	
+
 	protected ref CustomLoadingScreenData m_ExCustomLoadingScreenData;
 	protected ref array<int> m_ShownBackgrounds;
 
 	void LoadingScreen(DayZGame game)
 	{
-		m_ExCustomLoadingScreenData = new CustomLoadingScreenData();		
+		m_ExCustomLoadingScreenData = new CustomLoadingScreenData();
 		if (!m_ExCustomLoadingScreenData)
 			return;
 
@@ -232,22 +201,22 @@ modded class LoadingScreen
 			m_ShownBackgrounds = new array<int>;
 
 		m_ExPanelWidget = Widget.Cast(m_WidgetRoot.FindAnyWidget("PanelWidget1"));
-		
+
 		//! Hide vanilla hint icon
 		float posHintIconX, posHintIconY;
 		m_VanillaHintIcon = ImageWidget.Cast(m_WidgetRoot.FindAnyWidget("hintIcon"));
-		m_VanillaHintIcon.GetScreenPos(posHintIconX, posHintIconY);	
+		m_VanillaHintIcon.GetScreenPos(posHintIconX, posHintIconY);
 		m_VanillaHintIcon.Show(false);
 		m_VanillaHintIcon.Unlink();
-		
+
 		//! Create custom hint icon
 		m_ExHintIcon = ImageWidget.Cast(game.GetLoadingWorkspace().CreateWidgets("LoadingScreen/GUI/layouts/hint_icon.layout", m_ExPanelWidget));
 		m_ExHintIcon.SetScreenPos(posHintIconX, posHintIconY, true);
 		m_ExHintIcon.LoadImageFile(0, m_ExCustomLoadingScreenData.HintIconPath);
-		
+
 		//! Remove vanilla mask texture
 		m_ImageWidgetBackground.LoadMaskTexture("");
-		
+
 		//! Replace and set logo
 		if (m_ExCustomLoadingScreenData.ShowLogo && m_ExCustomLoadingScreenData.LogoPath != string.Empty)
 		{
@@ -266,19 +235,19 @@ modded class LoadingScreen
 			Print(ToString() + "::LoadingScreen - Hide logo!");
 			m_ImageLogoCorner.Show(false);
 		}
-		
+
 		if (m_ExCustomLoadingScreenData.LoadingBarColor != 0)
 		{
 			float posLoadingBarX, posLoadingBarY;
 			m_ProgressLoading.GetScreenPos(posLoadingBarX, posLoadingBarY);
 			m_ProgressLoading.Show(false);
 			m_ProgressLoading.Unlink();
-			
+
 			m_ProgressLoading = ProgressBarWidget.Cast(game.GetLoadingWorkspace().CreateWidgets("LoadingScreen/GUI/layouts/loading_bar.layout", m_ExPanelWidget));
 			m_ProgressLoading.SetScreenPos(posLoadingBarX, posLoadingBarY, true);
 			m_ProgressLoading.SetColor(m_ExCustomLoadingScreenData.LoadingBarColor);
 			ProgressAsync.SetProgressData(m_ProgressLoading);
-			
+
 			Print(ToString() + "::LoadingScreen - New progress bar: " + m_ProgressLoading.ToString());
 		}
 
@@ -315,7 +284,7 @@ modded class LoadingScreen
 			m_ExBackgroundIndex++;
 			if (m_ExBackgroundIndex > (m_ExCustomLoadingScreenData.m_ExBackgrounds.Count() - 1))
 				m_ExBackgroundIndex = 0;
-			
+
 			m_ExLoadingTime = 0;
 		}
 	}
@@ -328,7 +297,7 @@ modded class LoadingScreen
 
 		float loadingTime = m_ExLoadingTime;
 		float tickTime = game.GetTickTime();
-		
+
 		if (m_ExLoadingTimeStamp < 0)
 		{
 			m_ExLoadingTime = 0;
@@ -346,7 +315,7 @@ modded class LoadingScreen
 			m_ExBackgroundIndex++;
 			if (m_ExBackgroundIndex > (m_ExCustomLoadingScreenData.m_ExBackgrounds.Count() - 1))
 				m_ExBackgroundIndex = 0;
-			
+
 			m_ExLoadingTime = 0;
 		}
 
@@ -370,7 +339,7 @@ modded class LoadingScreen
 
 		Print(ToString() + "::Hide - End");
 	}
-	
+
 	protected void SetBackgroundImage(int index)
 	{
 		Print(ToString() + "::SetBackgroundImage - Start");
