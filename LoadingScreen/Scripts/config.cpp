@@ -7,8 +7,7 @@ class CfgPatches
 		requiredVersion=0.1;
 		requiredAddons[]=
 		{
-			"DZ_Scripts",
-			"DZ_Data"
+			"DZ_Scripts"
 		};
 	};
 };
@@ -61,7 +60,7 @@ class CfgSoundShaders
 {
 	class Main_Music_Menu_SoundShader
 	{
-		samples[] = {{"LoadingScreen\Music\mainmenu3.ogg",1}};
+		samples[] = {{"LoadingScreen\Music\mainmenu.ogg",1}};
 		volume = 1.00000000;
 	};
 };
